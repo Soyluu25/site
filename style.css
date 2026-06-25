@@ -1,0 +1,191 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+background:radial-gradient(circle at top,#250044,#050008 65%,#000);
+color:white;
+overflow:hidden;
+}
+
+/* ================= INTRO ================= */
+
+#intro{
+position:fixed;
+width:100%;
+height:100vh;
+background:radial-gradient(circle,#3a0066,#020003);
+display:flex;
+align-items:center;
+justify-content:center;
+z-index:99999;
+transition:opacity 1s ease, transform 1s ease, filter 1s ease;
+}
+
+#intro.hide{
+opacity:0;
+transform:scale(1.25);
+filter:blur(25px);
+pointer-events:none;
+visibility:hidden;
+}
+
+/* ================= MAIN ENTRY (IMPORTANT FIX) ================= */
+
+header,
+.hero,
+.ticker{
+opacity:0;
+transform:scale(1.08);
+filter:blur(18px);
+transition:1.2s ease;
+}
+
+/* intro bittikten sonra JS bunu ekler */
+body.loaded header,
+body.loaded .hero,
+body.loaded .ticker{
+opacity:1;
+transform:scale(1);
+filter:blur(0);
+}
+
+/* ================= HEADER ================= */
+
+header{
+position:fixed;
+top:0;
+width:100%;
+display:flex;
+justify-content:center;
+padding:22px 0;
+background:rgba(5,0,10,.65);
+backdrop-filter:blur(18px);
+z-index:100;
+}
+
+.title{
+font-family:'Orbitron', sans-serif;
+font-size:34px;
+color:#c77dff;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.center{max-width:800px;}
+
+.hero h1{
+font-size:90px;
+color:#c77dff;
+}
+
+.hero h2{font-size:35px;}
+
+.hero p{color:#ccc;margin:25px 0;}
+
+.buttons{
+display:flex;
+gap:15px;
+justify-content:center;
+}
+
+button{
+padding:15px 35px;
+border:1px solid #b000ff;
+background:transparent;
+color:white;
+border-radius:30px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:rgba(160,0,255,.35);
+}
+
+/* ================= TICKER ================= */
+
+.ticker{
+position:fixed;
+bottom:0;
+width:100%;
+background:rgba(10,0,20,.85);
+padding:12px 0;
+overflow:hidden;
+}
+
+.ticker-text{
+white-space:nowrap;
+display:inline-block;
+padding-left:100%;
+animation:scroll 18s linear infinite;
+color:#c77dff;
+}
+
+/* ================= INTRO ANIM ================= */
+
+.loader3d{
+width:260px;
+height:260px;
+display:flex;
+align-items:center;
+justify-content:center;
+animation:float 3s infinite;
+}
+
+.holo-ring{
+position:absolute;
+width:100%;
+height:100%;
+border-radius:50%;
+border:2px solid rgba(170,0,255,.8);
+animation:spin3d 4s linear infinite;
+}
+
+.logo-core img{
+width:140px;
+height:140px;
+border-radius:50%;
+}
+
+.scan-line{
+position:absolute;
+width:160px;
+height:2px;
+background:linear-gradient(90deg,transparent,#c77dff,transparent);
+animation:scan 2s linear infinite;
+}
+
+/* ================= ANIMATIONS ================= */
+
+@keyframes scroll{
+0%{transform:translateX(0);}
+100%{transform:translateX(-100%);}
+}
+
+@keyframes spin3d{
+0%{transform:rotateX(65deg) rotateZ(0);}
+100%{transform:rotateX(65deg) rotateZ(360deg);}
+}
+
+@keyframes float{
+0%{transform:translateY(0);}
+50%{transform:translateY(-12px);}
+100%{transform:translateY(0);}
+}
+
+@keyframes scan{
+0%{top:20%;}
+100%{top:80%;}
+}
