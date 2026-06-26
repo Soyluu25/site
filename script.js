@@ -26,7 +26,3 @@ function goInfo() {
     window.location.href = "info.html";
   }, 500);
 }
-
-function goServices() {
-  window.location.href = "https://www.shopier.com/kraxmarket";
-}
